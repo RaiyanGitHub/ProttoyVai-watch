@@ -25,6 +25,7 @@ public class RestManage {
             +"5. Exit");
         switch(input.nextInt()){
             case 1:
+                
                 break;
             case 2:
                 break;
