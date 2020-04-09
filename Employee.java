@@ -25,6 +25,19 @@ Address adress;
         //this.position = position;
         this.adress = adress;
         
+        
+    }
+
+    public Employee(int id, String firstname, String lastname, String email, Department department,  String streetname, String Town) {
+        this.id = id;
+        this.firstname = firstname;
+        this.lastname = lastname;
+        this.email = email;
+        this.department = department;
+        //this.position = position;
+        this.adress = new Address(streetname,Town);
+        
+        
     }
 
 public abstract void checkednotification();

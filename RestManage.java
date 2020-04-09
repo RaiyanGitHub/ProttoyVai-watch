@@ -5,6 +5,7 @@
 package restmanage;
 import java.io.*;
 import java.util.*;
+import static restmanage.ResturantManagement.ManagerCC;
 //java.io.*;
 /**
  *
@@ -37,7 +38,7 @@ public class RestManage {
                     case 1:/**
                      *   Hire Employee
                      */
-                        Manager manager = new Manager();
+                        ManagerCC();
                         
                 
                         break;
@@ -111,10 +112,10 @@ public class RestManage {
     }
          
 }
-/*    public static void main(String[] args) {
+    public static void main(String[] args) {
         MainMenu();
     }
-*/
+/*      testing method ArrayList 
 public static void main(String[] args) {
        //ArrayList<String> al=new ArrayList<String>();
         ArrayList<Department> departments__ALL = new ArrayList<Department>();
@@ -150,4 +151,5 @@ public static void main(String[] args) {
               System.out.println(e);  
           }  
     }
+*/
 }

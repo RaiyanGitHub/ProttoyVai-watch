@@ -17,47 +17,13 @@ public class Manager extends Employee {
         this.branchname = branchname;
         this.corporatereport = corporatereport;
     }
-    public Manager(){
-        Scanner InPut = new Scanner(System.in);
-        System.out.println("Enter the Employee ID:");
-        int ID = InPut.nextInt();
+    public Manager(String branchno, String branchname, String corporatereport, int id, String firstname, String lastname, String email, Department department, String streetname,String Town) {
         
-        System.out.println("Enter the First Name:");
-        String fname = InPut.next();
-        
-        System.out.println("Enter the Last Name:");
-        String nameL = InPut.next();
-        
-        System.out.println("Enter Email:");
-        String email = InPut.next();
-        
-        System.out.println("Enter Department id");
-        int deptID = InPut.nextInt();
-        
-        /*String deptName;
-        for(Department x: departments__ALL){
-            if(x.id == deptID){
-                 this.department = x;
-            }
-            else 
-                System.out.println(" Department not found:");
-        }
-        */try{
-        FileInputStream fis=new FileInputStream("Department Table");  
-              ObjectInputStream ois=new ObjectInputStream(fis);              
-              ArrayList  Dept_list=(ArrayList)ois.readObject();
-              
-              
-        }catch(Exception e){
-            System.out.println(e);
-        }
-        System.out.println("Enter");
-        System.out.println("Enter");
-        System.out.println("Enter");
-        System.out.println("Enter");
-        
-    }
-    
+        super(id, firstname, lastname, email, department, streetname, Town);
+        this.branchno = branchno;
+        this.branchname = branchname;
+        this.corporatereport = corporatereport;
+    }    
     public void hireemployee()
     {
         Scanner input=new Scanner(System.in);
@@ -161,10 +127,7 @@ public class Manager extends Employee {
     {
         
     }
-    public void checkefficiency()
-    {
-        
-    }
+    
     public void cngststus()
     {
         
