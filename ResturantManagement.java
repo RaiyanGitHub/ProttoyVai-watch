@@ -4,7 +4,9 @@ import java.util.*;
 import java.io.*;
 
 public class ResturantManagement {
-
+    public static void ManagerLL(){//Input manager Id and login for manager
+        
+    }
     public static void ManagerCC(){
         Scanner InPut = new Scanner(System.in);
         System.out.println("Enter the Employee ID:");

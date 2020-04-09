@@ -126,20 +126,6 @@ public class Manager extends Employee {
     public void editmenu()
     {
         
-    }
-    
-    
-
-    @Override
-    public void login() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void logout() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-    
-    
+    }   
     
 }

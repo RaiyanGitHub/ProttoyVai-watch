@@ -38,9 +38,5 @@ public class Chefs extends Employee {
         System.out.println(order.orderid+"is finshed & call the waiter"+waiterr.id);
         
     }
-
-    
-    
-    
-    
+  
 }

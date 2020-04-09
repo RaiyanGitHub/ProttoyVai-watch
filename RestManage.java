@@ -6,6 +6,8 @@ package restmanage;
 import java.io.*;
 import java.util.*;
 import static restmanage.ResturantManagement.ManagerCC;
+
+import static restmanage.ResturantManagement.ManagerLL;
 //java.io.*;
 /**
  *
@@ -20,7 +22,10 @@ public class RestManage {
         System.out.println("Welcome to our Restaurant Management Project!"+
                 "Featuring:\t Team Joy Bangla!!!");
         boolean flow = true;
+        // Create a manager or login as one
+        ManagerLL();
         while(flow){
+            
         System.out.println("What would you  like to do?");
         System.out.println("-------------***MainMenu***-------------------"+"\n"
             +"1. Administrative:"          
@@ -34,21 +39,24 @@ public class RestManage {
                     +"1. Hire Employee"          
                     +"2. Login Employee"
                     +"3. Logout Employee");
+                //1. Open the Manager File
+                //2. Extract the ArrayList of Managers
                 switch(input.nextInt()){//Inside Administrative
                     case 1:/**
-                     *   Hire Employee
+                     *   Call Manager Node.Hire Employee
                      */
-                        ManagerCC();
-                        
+                        //ManagerCC();
+                       
                 
                         break;
-                    case 2:// *   Login Employee
+                    case 2:// *   Call Manger Node.Login Employee
                         break;
-                    case 3://**   Logout Employee
+                    case 3://**   Call Manager Node.Logout Employee
                         break;
                     
                     default:
                 }
+                
                 break;
                 //goto infiniteLoop;
             case 2://service:

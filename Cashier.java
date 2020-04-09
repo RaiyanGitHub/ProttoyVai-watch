@@ -37,13 +37,6 @@ public class Cashier extends Employee {
             double Price=price-discount;
             System.out.println("your bill is="+Price);
         }
-    }
-
-
-    
-
-    
-    
-    
+    }// end of bill 
     
 }
