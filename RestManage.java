@@ -16,6 +16,8 @@ public class RestManage {
     public static void MainMenu(){
         System.out.println("Welcome to our Restaurant Management Project!"+
                 "Featuring:\t Team Joy Bangla!!!");
+        boolean flow = true;
+        while(flow){
         System.out.println("What would you  like to do?");
         System.out.println("-------------***MainMenu***-------------------"+"\n"
             +"1. Administrative:"          
@@ -25,21 +27,90 @@ public class RestManage {
             +"5. Exit");
         switch(input.nextInt()){
             case 1:
+                System.out.println("-------------***MainMenu***-------------------"+"\n"
+                    +"1. Hire Employee"          
+                    +"2. Login Employee"
+                    +"3. Logout Employee");
+                switch(input.nextInt()){//Inside Administrative
+                    case 1:/**
+                     *   Hire Employee
+                    
+                     
+                     */
                 
+                        break;
+                    case 2:// *   Login Employee
+                        break;
+                    case 3://**   Logout Employee
+                        break;
+                    
+                    default:
+                }
                 break;
-            case 2:
+                //goto infiniteLoop;
+            case 2://service:
+                System.out.println("-------------***MainMenu***-------------------"+"\n"
+                    +"1. Place Order:"          
+                    +"2. Bill Order:"
+                    +"3. Take Out:"
+                    +"4. Accept Order:");
+                    
+                switch(input.nextInt()){
+                    case 1: //Place Order
+                        break ;
+                    case 2:     // BILL Order
+                        break;
+                    case 3:     //Take Out
+                        break;
+                    case 4:     //Accept Order
+                        
+                    default:
+
+                    }
                 break;
-            case 3:
+            
+            case 3:     //Consumer Choice   Menu and what not 
+                System.out.println("-------------***MainMenu***-------------------"+"\n"
+                    +"1. Food Menu:"          
+                    +"2. Check Item Available:");
+            
+                switch(input.nextInt()){
+                    case 1:     //FoodMenu
+                        break;
+                    case 2:     //Check Item Available
+                        break;
+                    default:
+
+                }
                 break;
-            case 4:
+            case 4:     //Fixed Assets:
+                System.out.println("-------------***MainMenu***-------------------"+"\n"
+                    +"1. Reservation:"          
+                    +"2. Dining Rooms available:"                    
+                    +"3. Tables Available");
+                switch(input.nextInt()){
+                    case 1://       Reservation 
+                        break;
+                    case 2://       DiningRooms Available
+                        break;
+                    case 3://       Tables Unoccupied
+                        break;
+                    case 4://       Dummy
+                        break;
+                }
                 break;
-            case 5:
+            case 5:       //
+                System.out.println("Exiting......");
+                flow = false;
                 break;
             default:
         }
-    }
-    public static void main(String[] args) {
         
+    }
+         
+}
+    public static void main(String[] args) {
+        MainMenu();
     }
     
 }

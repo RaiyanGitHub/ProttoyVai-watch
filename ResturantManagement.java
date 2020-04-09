@@ -1,4 +1,4 @@
-
+//Dummy Function
 package restmanage;
 
 public class ResturantManagement {
