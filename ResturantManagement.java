@@ -29,7 +29,11 @@ public class ResturantManagement {
               FileInputStream fis=new FileInputStream("Department Table");  
               ObjectInputStream ois=new ObjectInputStream(fis);  
             ArrayList  Dept_list=(ArrayList)ois.readObject();  
-            System.out.println(Dept_list);    
+            Iterator itr = Dept_list.iterator();
+            while(itr.hasNext()){
+                Department Node = (Department)itr.next();
+                Node.display();
+            }
           }catch(Exception e)  
           {  
               System.out.println(e);  

@@ -9,6 +9,7 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.Scanner;
+//java.io.*;
 /**
  *
  * @author U.S.E.R
@@ -132,13 +133,13 @@ public static void main(String[] args) {
           try  
           {  
               //Serialization  
-              FileOutputStream fos=new FileOutputStream("Department Table");  
+              FileOutputStream fos=new FileOutputStream("Department Table.txt");  
               ObjectOutputStream oos=new ObjectOutputStream(fos);  
               oos.writeObject(departments__ALL);  
               fos.close();  
               oos.close();  
               //Deserialization  
-              FileInputStream fis=new FileInputStream("Department Table");  
+              FileInputStream fis=new FileInputStream("Department Table.txt");  
               ObjectInputStream ois=new ObjectInputStream(fis);  
             ArrayList  Dept_list=(ArrayList)ois.readObject();  
             System.out.println(Dept_list);    
@@ -146,5 +147,5 @@ public static void main(String[] args) {
           {  
               System.out.println(e);  
           }  
-    }    
+    }
 }
