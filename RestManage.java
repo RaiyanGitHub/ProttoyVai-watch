@@ -3,12 +3,8 @@
  *                      Featuring: Joy Bangla
  */
 package restmanage;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
-import java.util.ArrayList;
-import java.util.Scanner;
+import java.io.*;
+import java.util.*;
 //java.io.*;
 /**
  *
@@ -141,8 +137,14 @@ public static void main(String[] args) {
               //Deserialization  
               FileInputStream fis=new FileInputStream("Department Table.txt");  
               ObjectInputStream ois=new ObjectInputStream(fis);  
-            ArrayList  Dept_list=(ArrayList)ois.readObject();  
-            System.out.println(Dept_list);    
+            ArrayList<Department>  Dept_list=(ArrayList<Department>)ois.readObject();  
+            
+            Iterator itr = Dept_list.iterator();
+            while(itr.hasNext()){
+                    Department Node = (Department)itr.next();
+                    Node.display();
+                    //System.out.println(Node.toString()+" ");
+                }    
           }catch(Exception e)  
           {  
               System.out.println(e);  

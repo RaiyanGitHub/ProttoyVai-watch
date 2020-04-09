@@ -1,7 +1,8 @@
 
 package restmanage;
-import java.util.Scanner;
-import java.util.ArrayList;
+//import java.util.Scanner;
+import java.util.*;
+import java.io.*;
 
 public class Manager extends Employee {
     public static ArrayList<Department> departments__ALL = new ArrayList<Department>();
@@ -32,7 +33,8 @@ public class Manager extends Employee {
         
         System.out.println("Enter Department id");
         int deptID = InPut.nextInt();
-        String deptName;
+        
+        /*String deptName;
         for(Department x: departments__ALL){
             if(x.id == deptID){
                  this.department = x;
@@ -40,7 +42,15 @@ public class Manager extends Employee {
             else 
                 System.out.println(" Department not found:");
         }
-        
+        */try{
+        FileInputStream fis=new FileInputStream("Department Table");  
+              ObjectInputStream ois=new ObjectInputStream(fis);              
+              ArrayList  Dept_list=(ArrayList)ois.readObject();
+              
+              
+        }catch(Exception e){
+            System.out.println(e);
+        }
         System.out.println("Enter");
         System.out.println("Enter");
         System.out.println("Enter");
