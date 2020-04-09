@@ -24,17 +24,5 @@ public void deliverfood()
     
 }
 
-    @Override
-    public void checkednotification() {
-        
-    }
-
-
-
-  
-
-    
-
-
 }
   

@@ -39,10 +39,7 @@ public class Chefs extends Employee {
         
     }
 
-    @Override
-    public void checkednotification() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+    
     
     
     
