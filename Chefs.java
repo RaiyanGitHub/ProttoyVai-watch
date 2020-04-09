@@ -13,19 +13,7 @@ public class Chefs extends Employee {
     Order order;
     waiter waiterr;
 
-/*    public Chefs(String speciality, boolean occupied, String currentorder, int id, String firstname, String lastname, String email, Department department, String position, Address adress) {
-        super(id, firstname, lastname, email, department, position, adress);
-        this.speciality = speciality;
-        this.occupied = occupied;
-        this.currentorder = currentorder;
-    }
-    public Chefs(String speciality,  String currentorder, int id, String firstname, String lastname, String email, Department department, String position, Address adress) {
-        super(id, firstname, lastname, email, department, position, adress);
-        this.speciality = speciality;
-        this.occupied = occupied;
-        this.currentorder = currentorder;
-    }
-*/
+
 
     public Chefs(int id, String firstname, String lastname, String email, Department department, Address adress) {
         super(id, firstname, lastname, email, department, adress);

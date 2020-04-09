@@ -4,8 +4,8 @@ package restmanage;
 
 public class Department {
     
-    int id;
-    String name;
+    public int id;
+    public String name;
 
     public Department(int id, String name) {
         this.id = id;

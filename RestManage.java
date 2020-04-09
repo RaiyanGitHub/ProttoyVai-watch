@@ -3,6 +3,11 @@
  *                      Featuring: Joy Bangla
  */
 package restmanage;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.util.ArrayList;
 import java.util.Scanner;
 /**
  *
@@ -34,9 +39,9 @@ public class RestManage {
                 switch(input.nextInt()){//Inside Administrative
                     case 1:/**
                      *   Hire Employee
-                    
-                     
                      */
+                        Manager manager = new Manager();
+                        
                 
                         break;
                     case 2:// *   Login Employee
@@ -95,7 +100,7 @@ public class RestManage {
                         break;
                     case 3://       Tables Unoccupied
                         break;
-                    case 4://       Dummy
+                    case 4://       Floors Available
                         break;
                 }
                 break;
@@ -109,8 +114,37 @@ public class RestManage {
     }
          
 }
-    public static void main(String[] args) {
+/*    public static void main(String[] args) {
         MainMenu();
     }
-    
+*/
+public static void main(String[] args) {
+       //ArrayList<String> al=new ArrayList<String>();
+        ArrayList<Department> departments__ALL = new ArrayList<Department>();
+        Department first = new Department(101,"Management");
+        Department second = new Department(201,"Cuisine");
+        Department third = new Department(301,"Errands and Delivary");
+        departments__ALL.add(first);    
+        departments__ALL.add(second);    
+        departments__ALL.add(third);    
+             
+            
+          try  
+          {  
+              //Serialization  
+              FileOutputStream fos=new FileOutputStream("Department Table");  
+              ObjectOutputStream oos=new ObjectOutputStream(fos);  
+              oos.writeObject(departments__ALL);  
+              fos.close();  
+              oos.close();  
+              //Deserialization  
+              FileInputStream fis=new FileInputStream("Department Table");  
+              ObjectInputStream ois=new ObjectInputStream(fis);  
+            ArrayList  Dept_list=(ArrayList)ois.readObject();  
+            System.out.println(Dept_list);    
+          }catch(Exception e)  
+          {  
+              System.out.println(e);  
+          }  
+    }    
 }
