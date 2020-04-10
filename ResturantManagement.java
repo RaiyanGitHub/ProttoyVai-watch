@@ -13,6 +13,8 @@ public class ResturantManagement {
         FileInputStream fis=new FileInputStream("Manager Info");  
               ObjectInputStream ois=new ObjectInputStream(fis);              
               ArrayList  Xman_list=(ArrayList)ois.readObject();
+              fis.close();
+              ois.close();
               //Upto 4. done! 
               
         //5. Now propmt User: Name or ID

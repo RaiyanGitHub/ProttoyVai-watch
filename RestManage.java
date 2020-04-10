@@ -3,146 +3,207 @@
  *                      Featuring: Joy Bangla
  */
 package restmanage;
+
 import java.io.*;
 import java.util.*;
 import static restmanage.ResturantManagement.ManagerCC;
 
 import static restmanage.ResturantManagement.ManagerLL;
 //java.io.*;
+
 /**
  *
  * @author U.S.E.R
  */
 public class RestManage {
+
     public static Scanner input = new Scanner(System.in);
+
     /**
      * @param args the command line arguments
      */
-    public static void MainMenu(){
-        System.out.println("Welcome to our Restaurant Management Project!"+
-                "Featuring:\t Team Joy Bangla!!!");
+    public static void MainMenu() {
+        System.out.println("Welcome to our Restaurant Management Project!"
+                + "Featuring:\t Team Joy Bangla!!!");
         boolean flow = true;
         // Create a manager or login as one
         Manager Loggedin = ManagerLL();
-        if(Loggedin != null)
-        while(flow){
-            
-        System.out.println("What would you  like to do?");
-        System.out.println("-------------***MainMenu***-------------------"+"\n"
-            +"1. Administrative:"          
-            +"2. Services:"
-            +"3. Menu List:"
-            +"4. Reservation:"
-            +"5. Exit");
-        switch(input.nextInt()){
-            case 1:
-                System.out.println("-------------***MainMenu***-------------------"+"\n"
-                    +"1. Hire Employee"          
-                    +"2. Login Employee"
-                    +"3. Logout Employee");
-                //1. Open the Manager File.
-                //2. Extract the ArrayList of Managers.
-                //3. Login as a manager.
-                switch(input.nextInt()){//Inside Administrative
-                    case 1:/**
-                     *   Call Manager Node.Hire Employee
-                     */
-                        Loggedin.hireemployee();
-                        //ManagerCC();
-                       
-                
-                        break;
-                    case 2:// *   Call Manger Node.Login Employee   XXXXXXXXX
-                        //1. Open Employee File <<---------File Input Stream 
-                        //2. Extract ArrayList Of Employees from File <<---------- Object Input Stream
-                        //3. Take user input <<----- Employee ID
-                        //4. Search ArrayList for Employee <<------ Basic Search
-                        //5. Employee.Login()
-                        //6. Fis.close() & Ois.close()
-                        
-                        Loggedin.login();
-                        break;
-                        
-                    case 3://**   Call Manager Node.Logout Employee
-                        Loggedin.logout();
-                        //1. Open Employee File <<---------File Input Stream 
-                        //2. Extract ArrayList Of Employees from File <<---------- Object Input Stream
-                        //3. Take user input <<----- Employee ID
-                        //4. Search ArrayList for Employee <<------ Basic Search
-                        //5. Employee.Logout()
-                        //6. Fis.close() & Ois.close()
-                        break;
-                    
-                    default:
-                }
-                
-                break;
-                //goto infiniteLoop;
-            case 2://service:
-                System.out.println("-------------***MainMenu***-------------------"+"\n"
-                    +"1. Place Order:"          
-                    +"2. Bill Order:"
-                    +"3. Take Out:"
-                    +"4. Accept Order:");
-                    
-                switch(input.nextInt()){
-                    case 1: //Place Order
-                        break ;
-                    case 2:     // BILL Order
-                        break;
-                    case 3:     //Take Out
-                        break;
-                    case 4:     //Accept Order
-                        
-                    default:
-
-                    }
-                break;
-            
-            case 3:     //Consumer Choice   Menu and what not 
-                System.out.println("-------------***MainMenu***-------------------"+"\n"
-                    +"1. Food Menu:"          
-                    +"2. Check Item Available:");
-            
-                switch(input.nextInt()){
-                    case 1:     //FoodMenu
-                        break;
-                    case 2:     //Check Item Available
-                        break;
-                    default:
-
-                }
-                break;
-            case 4:     //Fixed Assets:
-                System.out.println("-------------***MainMenu***-------------------"+"\n"
-                    +"1. Reservation:"          
-                    +"2. Dining Rooms available:"                    
-                    +"3. Tables Available");
-                switch(input.nextInt()){
-                    case 1://       Reservation 
-                        break;
-                    case 2://       DiningRooms Available
-                        break;
-                    case 3://       Tables Unoccupied
-                        break;
-                    case 4://       Floors Available
-                        break;
-                }
-                break;
-            case 5:       //
-                System.out.println("Exiting......");
-                flow = false;
-                break;
-            default:
+        if (Loggedin == null) {
+            ManagerCC();
+            Loggedin = ManagerLL();
         }
-        
+        if (Loggedin != null) {
+            while (flow) {
+
+                System.out.println("What would you  like to do?");
+                System.out.println("-------------***MainMenu***-------------------" + "\n"
+                        + "1. Administrative:"
+                        + "2. Services:"
+                        + "3. Menu List:"
+                        + "4. Reservation:"
+                        + "5. Exit");
+                switch (input.nextInt()) {
+                    case 1:
+                        System.out.println("-------------***MainMenu***-------------------" + "\n"
+                                + "1. Hire Employee\n"
+                                + "2. Login Employee\n"
+                                + "3. Logout Employee\n");
+                        //1. Open the Manager File.
+                        //2. Extract the ArrayList of Managers.
+                        //3. Login as a manager.
+                        switch (input.nextInt()) {//Inside Administrative
+                            case 1:
+                                /**
+                                 * Call Manager Node.Hire Employee
+                                 */
+                                Loggedin.hireemployee();
+                                //ManagerCC();
+
+                                break;
+                            case 2:
+                                try {
+                                    // *   Call Manger Node.Login Employee   XXXXXXXXX
+                                    //1. Open Employee File <<---------File Input Stream
+                                    //2. Extract ArrayList Of Employees from File <<---------- Object Input Stream
+                                    //3. Take user input <<----- Employee ID
+                                    //4. Search ArrayList for Employee <<------ Basic Search
+                                    //5. Employee.Login()
+                                    //6. Fis.close() & Ois.close()
+                                    FileInputStream fees = new FileInputStream("Employee Info");//1
+                                    ObjectInputStream oees = new ObjectInputStream(fees);//2
+                                    ArrayList employees_ALL = (ArrayList) oees.readObject();
+
+                                    System.out.println("Enter the ID of the Employee: ");//3
+                                    int keyID = input.nextInt();
+                                    ///*
+                                    fees.close();
+                                    oees.close();
+                                    //*/
+                                    Iterator itr = employees_ALL.iterator();//4
+                                    while (itr.hasNext()) {
+
+                                        Employee node = (Employee) itr.next();
+                                        if (node.id == keyID) {
+                                            node.login();
+                                            /*fees.close();
+                                            oees.close();*/
+                                            break;
+                                        }
+
+                                    }
+
+                                } catch (Exception ex) {
+                                    System.out.println(ex);
+                                }
+
+                                break;
+
+                            case 3://**   Call Manager Node.Logout Employee
+
+                                try {    //1. Open Employee File <<---------File Input Stream 
+                                    //2. Extract ArrayList Of Employees from File <<---------- Object Input Stream
+                                    //3. Take user input <<----- Employee ID
+                                    //4. Search ArrayList for Employee <<------ Basic Search
+                                    //5. Employee.Logout()
+                                    //6. Fis.close() & Ois.close()
+                                    FileInputStream fees = new FileInputStream("Employee Info");//1
+                                    ObjectInputStream oees = new ObjectInputStream(fees);//2
+                                    ArrayList employees_ALL = (ArrayList) oees.readObject();
+
+                                    System.out.println("Enter the ID of the Employee: ");//3
+                                    int keyID = input.nextInt();
+                                    ///*
+                                    fees.close();
+                                    oees.close();
+                                    //*/
+                                    Iterator itr = employees_ALL.iterator();//4
+                                    while (itr.hasNext()) {
+
+                                        Employee node = (Employee) itr.next();
+                                        if (node.id == keyID) {
+                                            node.logout();
+                                            /*fees.close();
+                        oees.close();*/
+                                            break;
+                                        }
+
+                                    }
+                                } catch (Exception ex) {
+
+                                }
+                                break;
+
+                            default:
+                        }
+
+                        break;
+                    //goto infiniteLoop;
+                    case 2://service:
+                        System.out.println("-------------***MainMenu***-------------------" + "\n"
+                                + "1. Place Order:"
+                                + "2. Bill Order:"
+                                + "3. Take Out:"
+                                + "4. Accept Order:");
+
+                        switch (input.nextInt()) {
+                            case 1: //Place Order
+                                break;
+                            case 2:     // BILL Order
+                                break;
+                            case 3:     //Take Out
+                                break;
+                            case 4:     //Accept Order
+
+                            default:
+
+                        }
+                        break;
+
+                    case 3:     //Consumer Choice   Menu and what not 
+                        System.out.println("-------------***MainMenu***-------------------" + "\n"
+                                + "1. Food Menu:"
+                                + "2. Check Item Available:");
+
+                        switch (input.nextInt()) {
+                            case 1:     //FoodMenu
+                                break;
+                            case 2:     //Check Item Available
+                                break;
+                            default:
+
+                        }
+                        break;
+                    case 4:     //Fixed Assets:
+                        System.out.println("-------------***MainMenu***-------------------" + "\n"
+                                + "1. Reservation:"
+                                + "2. Dining Rooms available:"
+                                + "3. Tables Available");
+                        switch (input.nextInt()) {
+                            case 1://       Reservation 
+                                break;
+                            case 2://       DiningRooms Available
+                                break;
+                            case 3://       Tables Unoccupied
+                                break;
+                            case 4://       Floors Available
+                                break;
+                        }
+                        break;
+                    case 5:       //
+                        System.out.println("Exiting......");
+                        flow = false;
+                        break;
+                    default:
+                }
+
+            }
+        }
     }
-         
-}
+
     public static void main(String[] args) {
         MainMenu();
     }
-/*      testing method ArrayList 
+    /*      testing method ArrayList 
 public static void main(String[] args) {
        //ArrayList<String> al=new ArrayList<String>();
         ArrayList<Department> departments__ALL = new ArrayList<Department>();
@@ -178,5 +239,5 @@ public static void main(String[] args) {
               System.out.println(e);  
           }  
     }
-*/
+     */
 }

@@ -7,12 +7,12 @@ import java.time.format.DateTimeFormatter;
 
 public class Chefs extends Employee {
 
-    String speciality;
+    //String speciality;
     boolean occupied;
     String currentorder;
     Order order;
     waiter waiterr;
-
+    
 
 
     public Chefs(int id, String firstname, String lastname, String email, Department department, Address adress) {
@@ -36,7 +36,7 @@ public class Chefs extends Employee {
     public void finishorder()
     {
         System.out.println(order.orderid+"is finshed & call the waiter"+waiterr.id);
-        
+        this.order = null;        
     }
   
 }

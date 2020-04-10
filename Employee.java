@@ -43,16 +43,19 @@ public  void login()
     LocalTime time=LocalTime.now();
     DateTimeFormatter timef=DateTimeFormatter.ofPattern("hh:mm:ss");
     String formattime=time.format(timef);
-    System.out.println("Entry Time:"+formattime);
+    System.out.println("Employee Serial: "+this.id+"\nEntry Time:"+formattime);
 }
 public  void logout()
 {
       LocalTime time=LocalTime.now();
     DateTimeFormatter timef=DateTimeFormatter.ofPattern("hh:mm:ss");
     String formattime=time.format(timef);
-    System.out.println("Exit Time:"+formattime);
+    System.out.println("Employee Serial: "+this.id+"Exit Time:"+formattime);
     
 }
+    public void display(){
+    
+    }
      
 }
  
