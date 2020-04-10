@@ -4,8 +4,68 @@ import java.util.*;
 import java.io.*;
 
 public class ResturantManagement {
-    public static void ManagerLL(){//Input manager Id and login for manager
+    public static Manager ManagerLL(){//Input manager Id and login for manager
+        //1. Create file input stream fis
+        //2. create object input stream  ois
+        //3. for manager create array list
+        //4. import the object from the file "Manager Info"
+        try{
+        FileInputStream fis=new FileInputStream("Manager Info");  
+              ObjectInputStream ois=new ObjectInputStream(fis);              
+              ArrayList  Xman_list=(ArrayList)ois.readObject();
+              //Upto 4. done! 
+              
+        //5. Now propmt User: Name or ID
+        //6. search for the key in Xman_list
+            Scanner innn = new Scanner(System.in);
+            System.out.println("Do you want to login as a manager using:\n 1. ID \n  or\n 2. firt Name?\n or 3.lastname.");
+            int choice1 = innn.nextInt();
+            
+                    Iterator itr = Xman_list.iterator();
+            switch (choice1) {
+                case 1:
+                    System.out.println("Enter the ID.");
+                    int key01 = innn.nextInt();
+                    while(itr.hasNext()){
+                        Manager Node = (Manager)itr.next();
+                        if(Node.id == key01){
+                            //login using Node
+                            return Node;
+                        }
+                    }
+                    break;
+                case 2:
+                    System.out.println("Enter the Name.");
+                    String key02 = innn.next();
+                    while(itr.hasNext()){
+                        Manager Node = (Manager)itr.next(); 
+                        if(Node.firstname.matches(key02)){
+                            //login using Node
+                            return Node;
+                        }
+                    }                    
+                    break;
+                case 3:
+                    System.out.println("Enter the Name.");
+                    String key03 = innn.next();
+                    while(itr.hasNext()){
+                        Manager Node = (Manager)itr.next(); 
+                        if(Node.lastname.matches(key03)){
+                            //login using Node
+                            return Node;
+                        }
+                    }                    
+                    break;
+                default:
+                    System.out.println("No other Data kan be used as key... sorry");
+                    break;
+            }
+            
         
+        }catch(Exception e){
+            System.out.println(e);
+        }
+        return null;
     }
     public static void ManagerCC(){
         Scanner InPut = new Scanner(System.in);

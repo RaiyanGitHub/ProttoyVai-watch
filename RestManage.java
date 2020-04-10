@@ -23,7 +23,8 @@ public class RestManage {
                 "Featuring:\t Team Joy Bangla!!!");
         boolean flow = true;
         // Create a manager or login as one
-        ManagerLL();
+        Manager Loggedin = ManagerLL();
+        if(Loggedin != null)
         while(flow){
             
         System.out.println("What would you  like to do?");
@@ -39,19 +40,24 @@ public class RestManage {
                     +"1. Hire Employee"          
                     +"2. Login Employee"
                     +"3. Logout Employee");
-                //1. Open the Manager File
-                //2. Extract the ArrayList of Managers
+                //1. Open the Manager File.
+                //2. Extract the ArrayList of Managers.
+                //3. Login as a manager.
                 switch(input.nextInt()){//Inside Administrative
                     case 1:/**
                      *   Call Manager Node.Hire Employee
                      */
+                        Loggedin.hireemployee();
                         //ManagerCC();
                        
                 
                         break;
                     case 2:// *   Call Manger Node.Login Employee
+                        Loggedin.login();
                         break;
+                        
                     case 3://**   Call Manager Node.Logout Employee
+                        Loggedin.logout();
                         break;
                     
                     default:

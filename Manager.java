@@ -51,7 +51,16 @@ public class Manager extends Employee {
                 adress.streetname=input.next();
                 System.out.println("Type town name");
                 adress.town=input.next();
-                 waiter waiterr=new waiter(iD,name,name1,eml,department,adress);
+                waiter waiterr=new waiter(iD,name,name1,eml,department,adress);
+                //1. Create File I Stre fis<<-----Waiter Info
+                //1.5. Create Object Input Stream ois <<----- fis
+                //2. Extract ArrayList of waiters
+                //3. Add waiterr to ArrayList 
+                //4. Close The file and Object input streams
+                //5. Create File and Object Outputstream
+                //6. enter arraylist to file
+                //7. close file and object outputstream
+                 
                 break;
                 
             case 2:
@@ -94,38 +103,10 @@ public class Manager extends Employee {
                 Cashier bright=new Cashier(iDm,namem,name1m,emlm,department,adress);
                 break;
             default:
-                System.out.println("Type correct number");
-                
-                              
-
-                
+                System.out.println("Type correct number");          
                 
         }
-        
-        
-        
-        
-        
-        
-        
-        
-        
+         
     }
-    public void fireemployee()
-    {
-        
-    }
-    public void checkstock()
-    {
-        
-    }
-    public void editstock()
-    {
-        
-    }
-    public void editmenu()
-    {
-        
-    }   
-    
+      
 }
