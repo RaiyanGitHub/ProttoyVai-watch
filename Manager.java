@@ -3,6 +3,8 @@ package restmanage;
 //import java.util.Scanner;
 import java.util.*;
 import java.io.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class Manager extends Employee {
     public static ArrayList<Department> departments__ALL = new ArrayList<Department>();
@@ -60,6 +62,39 @@ public class Manager extends Employee {
                 //5. Create File and Object Outputstream
                 //6. enter arraylist to file
                 //7. close file and object outputstream
+                try{
+                
+                    
+                    FileInputStream fis     = new FileInputStream("Waiter Info");  //     Read File
+                    ObjectInputStream ois   = new ObjectInputStream(fis);        //     Read Object from file 
+                    ArrayList  Waiter_ALL    = (ArrayList)ois.readObject();       //
+                    Waiter_ALL.add(waiterr);
+                    fis.close();        ois.close();
+                    FileOutputStream fos = new FileOutputStream("Chef Info");   
+                    ObjectOutputStream ous = new ObjectOutputStream(fos);
+                    ous.writeObject(Waiter_ALL);
+                    fos.close();    ous.close();
+                    
+                
+                }catch(FileNotFoundException e){
+                    try {
+                        FileOutputStream fos = new FileOutputStream("Chef Info");   //fus
+                        ObjectOutputStream ous = new ObjectOutputStream(fos);       //ous
+                        ArrayList<waiter> Waiter_List = new ArrayList<waiter>();        // created array List
+                        Waiter_List.add(waiterr);                                      // added the newly created chef to arr
+                        
+                        ous.writeObject(Waiter_List);                                 //written the arrayList into the file
+                        fos.close();                                                //closed the fileoutputStream
+                        ous.close();                                                //closed the object outputstream
+                        
+                        
+                    } catch (Exception exe) {
+                            System.out.println(exe);
+                    }
+                
+                } catch (Exception ex) { 
+                    System.out.println(ex);
+                } 
                  
                 break;
                 
@@ -81,6 +116,47 @@ public class Manager extends Employee {
                 System.out.println("Type town name");
                 adress.town=input.next();
                  Chefs chef01=new Chefs(iDc,namec,name1c,emlc,department,adress);
+                //1. Create File I Stre fis<<-----Waiter Info
+                //1.5. Create Object Input Stream ois <<----- fis
+                //2. Extract ArrayList of waiters
+                //3. Add chef to ArrayList 
+                //4. Close The file and Object input streams
+                //5. Create File and Object Outputstream
+                //6. enter arraylist to file
+                //7. close file and object outputstream
+                try{
+                
+                    
+                    FileInputStream fis     = new FileInputStream("Chef Info");  //     Read File
+                    ObjectInputStream ois   = new ObjectInputStream(fis);        //     Read Object from file 
+                    ArrayList  Chef_ALL    = (ArrayList)ois.readObject();       //
+                    Chef_ALL.add(chef01);
+                    fis.close();        ois.close();
+                    FileOutputStream fos = new FileOutputStream("Chef Info");   
+                    ObjectOutputStream ous = new ObjectOutputStream(fos);
+                    ous.writeObject(Chef_ALL);
+                    fos.close();    ous.close();
+                    
+                
+                }catch(FileNotFoundException e){
+                    try {
+                        FileOutputStream fos = new FileOutputStream("Chef Info");   //fus
+                        ObjectOutputStream ous = new ObjectOutputStream(fos);       //ous
+                        ArrayList<Chefs> Chef_List = new ArrayList<Chefs>();        // created array List
+                        Chef_List.add(chef01);                                      // added the newly created chef to arr
+                        
+                        ous.writeObject(Chef_List);                                 //written the arrayList into the file
+                        fos.close();                                                //closed the fileoutputStream
+                        ous.close();                                                //closed the object outputstream
+                        
+                        
+                    } catch (Exception exe) {
+                            System.out.println(exe);
+                    }
+                
+                } catch (Exception ex) { 
+                    System.out.println(ex);
+                } 
                 break;
                 
             case 3:
@@ -101,6 +177,47 @@ public class Manager extends Employee {
                 System.out.println("Type town name");
                 adress.town=input.next();
                 Cashier bright=new Cashier(iDm,namem,name1m,emlm,department,adress);
+                //1. Create File I Stre fis<<-----Waiter Info
+                //1.5. Create Object Input Stream ois <<----- fis
+                //2. Extract ArrayList of waiters
+                //3. Add waiterr to ArrayList 
+                //4. Close The file and Object input streams
+                //5. Create File and Object Outputstream
+                //6. enter arraylist to file
+                //7. close file and object outputstream
+                try{
+                
+                    
+                    FileInputStream fis     = new FileInputStream("Cashier Info");  //     Read File
+                    ObjectInputStream ois   = new ObjectInputStream(fis);        //     Read Object from file 
+                    ArrayList  Cashier_ALL    = (ArrayList)ois.readObject();       //
+                    Cashier_ALL.add(bright);
+                    fis.close();        ois.close();
+                    FileOutputStream fos = new FileOutputStream("Chef Info");   
+                    ObjectOutputStream ous = new ObjectOutputStream(fos);
+                    ous.writeObject(Cashier_ALL);
+                    fos.close();    ous.close();
+                    
+                
+                }catch(FileNotFoundException e){
+                    try {
+                        FileOutputStream fos = new FileOutputStream("Chef Info");   //fus
+                        ObjectOutputStream ous = new ObjectOutputStream(fos);       //ous
+                        ArrayList<Cashier> Cashier_List = new ArrayList<Cashier>();        // created array List
+                        Cashier_List.add(bright);                                      // added the newly created chef to arr
+                        
+                        ous.writeObject(Cashier_List);                                 //written the arrayList into the file
+                        fos.close();                                                //closed the fileoutputStream
+                        ous.close();                                                //closed the object outputstream
+                        
+                        
+                    } catch (Exception exe) {
+                            System.out.println(exe);
+                    }
+                
+                } catch (Exception ex) { 
+                    System.out.println(ex);
+                } 
                 break;
             default:
                 System.out.println("Type correct number");          

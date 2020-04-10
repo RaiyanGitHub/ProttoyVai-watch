@@ -52,12 +52,25 @@ public class RestManage {
                        
                 
                         break;
-                    case 2:// *   Call Manger Node.Login Employee
+                    case 2:// *   Call Manger Node.Login Employee   XXXXXXXXX
+                        //1. Open Employee File <<---------File Input Stream 
+                        //2. Extract ArrayList Of Employees from File <<---------- Object Input Stream
+                        //3. Take user input <<----- Employee ID
+                        //4. Search ArrayList for Employee <<------ Basic Search
+                        //5. Employee.Login()
+                        //6. Fis.close() & Ois.close()
+                        
                         Loggedin.login();
                         break;
                         
                     case 3://**   Call Manager Node.Logout Employee
                         Loggedin.logout();
+                        //1. Open Employee File <<---------File Input Stream 
+                        //2. Extract ArrayList Of Employees from File <<---------- Object Input Stream
+                        //3. Take user input <<----- Employee ID
+                        //4. Search ArrayList for Employee <<------ Basic Search
+                        //5. Employee.Logout()
+                        //6. Fis.close() & Ois.close()
                         break;
                     
                     default:
