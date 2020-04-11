@@ -4,6 +4,15 @@ import java.util.*;
 import java.io.*;
 
 public class ResturantManagement {
+    public static void FoodCC(){
+        try{
+            FileOutputStream foos = new FileOutputStream("Food List");
+            ObjectOutputStream OOOS = new ObjectOutputStream(foos);
+            
+        }catch(Exception e){
+        
+        }
+    }
     public static Manager ManagerLL(){//Input manager Id and login for manager
         //1. Create file input stream fis
         //2. create object input stream  ois

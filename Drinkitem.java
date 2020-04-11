@@ -1,8 +1,8 @@
 
 package restmanage;
+import java.io.Serializable;
 
-
-public class Drinkitem extends Menuitem{
+public class Drinkitem extends Menuitem implements Serializable{
     String drinktype;
     String size;
 

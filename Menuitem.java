@@ -1,7 +1,7 @@
 
 package restmanage;
-
-public class Menuitem {
+import java.io.Serializable;
+public class Menuitem implements Serializable{
     int itemid;
     double itemprice;
     boolean available;

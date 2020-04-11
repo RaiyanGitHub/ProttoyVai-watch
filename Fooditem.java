@@ -1,8 +1,8 @@
 
 package restmanage;
+import java.io.Serializable;
 
-
-public class Fooditem extends Menuitem {
+public class Fooditem extends Menuitem implements Serializable{
     
     String foodname;
     boolean wcombo;
