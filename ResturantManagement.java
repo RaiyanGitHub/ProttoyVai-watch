@@ -103,20 +103,8 @@ public class ResturantManagement {
             }
         }catch(Exception e){
             System.out.println(e);
-        
         }
-    
-        
     }
-    
-    
-    
-    
-    
-    
-    
-    
-    
     
     public static Manager ManagerLL(){//Input manager Id and login for manager
         //1. Create file input stream fis

@@ -6,6 +6,8 @@ package restmanage;
 
 import java.io.*;
 import java.util.*;
+import static restmanage.ResturantManagement.FoodCC;
+import static restmanage.ResturantManagement.DrinkCC;
 import static restmanage.ResturantManagement.ManagerCC;
 
 import static restmanage.ResturantManagement.ManagerLL;
@@ -162,12 +164,26 @@ public class RestManage {
                     case 3:     //Consumer Choice   Menu and what not 
                         System.out.println("-------------***MainMenu***-------------------" + "\n"
                                 + "1. Food Menu:"
-                                + "2. Check Item Available:");
+                                + "2. Check Item Available:"
+                                + "3. Add Food Item"
+                                + "4. Add Drink Item");
 
                         switch (input.nextInt()) {
                             case 1:     //FoodMenu
+                                try{
+                                    
+                                }catch(Exception e){}
                                 break;
                             case 2:     //Check Item Available
+                                try{
+                                    
+                                }catch(Exception e){}
+                                break;
+                            case 3:
+                                FoodCC();
+                                break;
+                            case 4:
+                                DrinkCC();
                                 break;
                             default:
 
