@@ -7,31 +7,86 @@ public class ResturantManagement {
     public static void FoodCC(){
         Scanner InPut = new Scanner(System.in);
         System.out.println("Enter the Item ID:");
-        int ID = InPut.nextInt();
+        String ID = InPut.next();
         
+          System.out.println("Enter the Name:");
+        String nameL = InPut.next();
         System.out.println("Enter the Item Price:");
         double price = InPut.nextDouble();
         //change input appropriate:
-        System.out.println("Enter the Last Name:");
-        String nameL = InPut.next();
+     
         
-        System.out.println("Enter Email:");
+        System.out.println("Enter quantity:");
         String email = InPut.next();
         
-        System.out.println("Enter Department id");
-        int deptID = InPut.nextInt();
-        Department depB = null;
+      Fooditem fooditem;
+        fooditem = new Fooditem(ID,nameL,email,price);
         try{
-            FileOutputStream foos = new FileOutputStream("Food List");
-            ObjectOutputStream OOOS = new ObjectOutputStream(foos);
-            //Complete File input Output process the way we did for other Classes.
-            //Your code
+            FileInputStream foodf    = new FileInputStream("menu Info");  //     Read File
+                    ObjectInputStream ooof  = new ObjectInputStream(foodf);
+                    ArrayList  Food_All  = (ArrayList)ooof.readObject();
+                    Food_All.add(fooditem);
+                    foodf.close();     ooof.close();
+                    
+                    FileOutputStream fooos   = new FileOutputStream("menu Info");   
+                    ObjectOutputStream ouuus = new ObjectOutputStream(fooos);
+                    ouuus.writeObject(fooditem);
+                    fooos.close();  ouuus.close();
         
-        
-        }catch(Exception e){
+        }catch(IOException | ClassNotFoundException e){
+            System.out.println(e);
         
         }
+    
     }
+    
+    public static void DrinkCC()
+    {
+               Scanner InPut = new Scanner(System.in);
+        System.out.println("Enter the Item ID:");
+        String ID = InPut.next();
+        
+          System.out.println("Enter Drinks Name:");
+        String nameL = InPut.next();
+        System.out.println("Enter the Item Price:");
+        double price = InPut.nextDouble();
+        //change input appropriate:
+     
+        
+        System.out.println("Enter Size:");
+        String email = InPut.next();
+        
+     
+        Drinkitem drinkitem = new Drinkitem(ID,nameL,email,price);
+        try{
+            FileInputStream foodf    = new FileInputStream("menu Info");  //     Read File
+                    ObjectInputStream ooof  = new ObjectInputStream(foodf);
+                    ArrayList  Food_All  = (ArrayList)ooof.readObject();
+                    Food_All.add(drinkitem);
+                    foodf.close();     ooof.close();
+                    
+                    FileOutputStream fooos   = new FileOutputStream("menu Info");   
+                    ObjectOutputStream ouuus = new ObjectOutputStream(fooos);
+                    ouuus.writeObject(drinkitem);
+                    fooos.close();  ouuus.close();
+        
+        }catch(IOException | ClassNotFoundException e){
+            System.out.println(e);
+        
+        }
+    
+        
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     public static Manager ManagerLL(){//Input manager Id and login for manager
         //1. Create file input stream fis
         //2. create object input stream  ois

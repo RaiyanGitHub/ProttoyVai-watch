@@ -2,21 +2,30 @@
 package restmanage;
 import java.io.Serializable;
 
-public class Fooditem extends Menuitem implements Serializable{
+public class Fooditem  implements Serializable{
     
+    String foodid;
     String foodname;
-    boolean wcombo;
+   String quantity;
+   double price;
 
-    public Fooditem(String foodname, int itemid, double itemprice, int quantity, String itemdescription) {
-        super(itemid, itemprice, quantity, itemdescription);
+    public Fooditem(String foodid,String foodname, String quantity, double price) {
+        this.foodid=foodid;
         this.foodname = foodname;
+        this.quantity = quantity;
+        this.price = price;
     }
+
+   
+    
+
     
     public void display()
     {
+        System.out.println("food id="+foodid);
         System.out.println("Foodname="+foodname);
-        System.out.println("wCombo package="+wcombo);
-        super.display();
+        System.out.println("Food quantity="+quantity);
+        System.out.println("Food price="+price);
     }
     
 }
