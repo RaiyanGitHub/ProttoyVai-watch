@@ -2,11 +2,12 @@
 package restmanage;
 
 
+import java.io.*;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 
 
-public abstract class Employee {
+public abstract class Employee implements Serializable {
 
 int id;
 String firstname;

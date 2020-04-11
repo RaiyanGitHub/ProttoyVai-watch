@@ -6,13 +6,19 @@ public class Menuitem implements Serializable{
     double itemprice;
     boolean available;
     int  quantity;
-  String itemdescription;
+  String name;
 
-    public Menuitem(int itemid, double itemprice, int quantity, String itemdescription) {
+    public Menuitem(int itemid, double itemprice, int quantity, String name) {
         this.itemid = itemid;
         this.itemprice = itemprice;
         this.quantity = quantity;
-        this.itemdescription = itemdescription;
+        this.name = name;
+    }
+    public Menuitem(int itemid, double itemprice, String name) {
+        this.itemid = itemid;
+        this.itemprice = itemprice;
+     
+        this.name = name;
     }
   
   public void display()
@@ -20,6 +26,6 @@ public class Menuitem implements Serializable{
       System.out.println("Item id="+itemid);
       System.out.println("Price="+itemprice);
       System.out.println("Quantity="+quantity);
-      System.out.println("Description:"+itemdescription);
+      System.out.println("Description:"+name);
   }
 }

@@ -1,11 +1,12 @@
 
 package restmanage;
 
+import java.io.*;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 
 
-public class waiter extends Employee {
+public class waiter extends Employee implements Serializable{
 
 
 

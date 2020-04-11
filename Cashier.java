@@ -1,7 +1,9 @@
 
 package restmanage;
 
-public class Cashier extends Employee {
+import java.io.*;
+
+public class Cashier extends Employee implements Serializable{
     
     
     Order order;

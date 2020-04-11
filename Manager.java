@@ -4,26 +4,24 @@ package restmanage;
 import java.util.*;
 import java.io.*;
 
-public class Manager extends Employee {
-    public static ArrayList<Department> departments__ALL = new ArrayList<Department>();
-    String branchno;
-    String branchname;
-    String corporatereport;
+public class Manager extends Employee implements Serializable{
+    /*public static ArrayList<Department> departments__ALL = new ArrayList<Department>();*/
+    int branchno;
+//    String branchname;
+//    String corporatereport;
 
-    public Manager(String branchno, String branchname, String corporatereport, int id, String firstname, String lastname, String email, Department department, Address adress) {
-        
+    public Manager(int branchno, int id, String firstname, String lastname, String email, Department department, Address adress) {
         super(id, firstname, lastname, email, department, adress);
         this.branchno = branchno;
-        this.branchname = branchname;
-        this.corporatereport = corporatereport;
     }
-    public Manager(String branchno, String branchname, String corporatereport, int id, String firstname, String lastname, String email, Department department, String streetname,String Town) {
-        
-        super(id, firstname, lastname, email, department, streetname, Town);
+
+    public Manager(int branchno, int id, String firstname, String lastname, String email, Department department, String street, String Town) {
+        super(id, firstname, lastname, email, department, street, Town);
         this.branchno = branchno;
-        this.branchname = branchname;
-        this.corporatereport = corporatereport;
-    }    
+    }
+    
+    
+    
     public void hireemployee()
     {
         Scanner input=new Scanner(System.in);

@@ -4,10 +4,11 @@ import java.util.*;
 import java.io.*;
 
 public class ResturantManagement {
+    
     public static void FoodCC(){
         Scanner InPut = new Scanner(System.in);
         System.out.println("Enter the Item ID:");
-        String ID = InPut.next();
+        int ID = InPut.nextInt();
         
           System.out.println("Enter the Name:");
         String nameL = InPut.next();
@@ -17,25 +18,25 @@ public class ResturantManagement {
      
         
         System.out.println("Enter quantity:");
-        String email = InPut.next();
+        int email = InPut.nextInt();
         
       Fooditem fooditem;
-        fooditem = new Fooditem(ID,nameL,email,price);
+        fooditem = new Fooditem(ID,price,email,nameL);
         try{
-            FileInputStream foodf    = new FileInputStream("menu Info");  //     Read File
+            FileInputStream foodf    = new FileInputStream("Food Info");  //     Read File
                     ObjectInputStream ooof  = new ObjectInputStream(foodf);
                     ArrayList  Food_All  = (ArrayList)ooof.readObject();
                     Food_All.add(fooditem);
                     foodf.close();     ooof.close();
                     
-                    FileOutputStream fooos   = new FileOutputStream("menu Info");   
+                    FileOutputStream fooos   = new FileOutputStream("Food Info");   
                     ObjectOutputStream ouuus = new ObjectOutputStream(fooos);
                     ouuus.writeObject(fooditem);
                     fooos.close();  ouuus.close();
                     
-        }catch(FileNotFoundException ex){
+        }catch(EOFException | FileNotFoundException ex){
             try{
-                FileOutputStream fos = new FileOutputStream("menu Info");// must create a file (if it does not exist)
+                FileOutputStream fos = new FileOutputStream("Food Info");// must create a file (if it does not exist)
                 ObjectOutputStream oos = new ObjectOutputStream(fos);
                 
                 ArrayList<Fooditem> Food_List = new ArrayList<Fooditem>();
@@ -60,7 +61,7 @@ public class ResturantManagement {
     {
                Scanner InPut = new Scanner(System.in);
         System.out.println("Enter the Item ID:");
-        String ID = InPut.next();
+        int ID = InPut.nextInt();
         
           System.out.println("Enter Drinks Name:");
         String nameL = InPut.next();
@@ -75,20 +76,20 @@ public class ResturantManagement {
      
         Drinkitem drinkitem = new Drinkitem(ID,nameL,email,price);
         try{
-            FileInputStream foodf    = new FileInputStream("menu Info");  //     Read File
+            FileInputStream foodf    = new FileInputStream("Drink Info");  //     Read File
                     ObjectInputStream ooof  = new ObjectInputStream(foodf);
                     ArrayList  Food_All  = (ArrayList)ooof.readObject();
                     Food_All.add(drinkitem);
                     foodf.close();     ooof.close();
                     
-                    FileOutputStream fooos   = new FileOutputStream("menu Info");   
+                    FileOutputStream fooos   = new FileOutputStream("Drink Info");   
                     ObjectOutputStream ouuus = new ObjectOutputStream(fooos);
                     ouuus.writeObject(drinkitem);
                     fooos.close();  ouuus.close();
         
-        }catch(FileNotFoundException ex){
+        }catch(EOFException | FileNotFoundException ex){
             try{
-            FileOutputStream fos = new FileOutputStream("menu Info");// must create a file (if it does not exist)
+            FileOutputStream fos = new FileOutputStream("Drink Info");// must create a file (if it does not exist)
                 ObjectOutputStream oos = new ObjectOutputStream(fos);
                 
                 ArrayList<Drinkitem> Food_List = new ArrayList<Drinkitem>();
@@ -105,7 +106,48 @@ public class ResturantManagement {
             System.out.println(e);
         }
     }
-    
+    public static void DeptCC(){
+    //ArrayList<String> al=new ArrayList<String>();
+        ArrayList<Department> departments__ALL = new ArrayList<Department>();
+        Department first = new Department(1,"Management");
+        Department second = new Department(2,"Cuisine");
+        Department third = new Department(3,"Errands and Delivary");
+        departments__ALL.add(first);    
+        departments__ALL.add(second);    
+        departments__ALL.add(third);    
+             
+            
+          try  
+          {  
+            //Serialization  
+              FileOutputStream fos = new FileOutputStream("Department Info");  
+              ObjectOutputStream oos = new ObjectOutputStream(fos);  
+              oos.writeObject(departments__ALL);  
+              fos.close();  
+              oos.close();  
+ 
+              //Deserialization  
+              FileInputStream fis=new FileInputStream("Department Info");  
+              ObjectInputStream ois=new ObjectInputStream(fis);              
+              ArrayList<Department>  Dept_list=(ArrayList<Department>)ois.readObject();  
+              
+            //Iterating and displaying                  ///// Done!!!
+              Iterator itr = Dept_list.iterator();
+            // This actually works
+                while(itr.hasNext()){
+                    Department Node = (Department)itr.next();
+                    Node.display();
+                }
+              
+
+                fis.close();
+                oos.close();
+          }catch(Exception e)  
+          {  
+              System.out.println(e);  
+          } 
+          
+    }
     public static Manager ManagerLL(){//Input manager Id and login for manager
         //1. Create file input stream fis
         //2. create object input stream  ois
@@ -197,7 +239,7 @@ public class ResturantManagement {
                 System.out.println(" Department not found:");
         }
         */try{
-        FileInputStream fis=new FileInputStream("Department Table");  
+        FileInputStream fis=new FileInputStream("Department Info");  
               ObjectInputStream ois=new ObjectInputStream(fis);              
               ArrayList  Dept_list=(ArrayList)ois.readObject();
               
@@ -214,6 +256,8 @@ public class ResturantManagement {
                   return;
               }
               
+        }catch(FileNotFoundException e){
+            
         }catch(Exception e){
             System.out.println(e);
         }
@@ -250,47 +294,9 @@ public class ResturantManagement {
     }//End of Manager Function
     //public static Department[] departments__ALL = new Department();
     public static void main(String[] args) {
-       //ArrayList<String> al=new ArrayList<String>();
-        ArrayList<Department> departments__ALL = new ArrayList<Department>();
-        Department first = new Department(101,"Management");
-        Department second = new Department(201,"Cuisine");
-        Department third = new Department(301,"Errands and Delivary");
-        departments__ALL.add(first);    
-        departments__ALL.add(second);    
-        departments__ALL.add(third);    
-             
-            
-          try  
-          {  
-            //Serialization  
-              FileOutputStream fos = new FileOutputStream("Department Info");  
-              ObjectOutputStream oos = new ObjectOutputStream(fos);  
-              oos.writeObject(departments__ALL);  
-              fos.close();  
-              oos.close();  
-            //Deserialization  
-              FileInputStream fis=new FileInputStream("Department Info");  
-              ObjectInputStream ois=new ObjectInputStream(fis);              
-              ArrayList<Department>  Dept_list=(ArrayList<Department>)ois.readObject();  
-              
-            /*//Iterating and displaying                  ///// Done!!!
-              Iterator itr = Dept_list.iterator();
-            // This actually works
-                while(itr.hasNext()){
-                    Department Node = (Department)itr.next();
-                    Node.display();
-                }
-              
-*/
-                fis.close();
-                oos.close();
-          }catch(Exception e)  
-          {  
-              System.out.println(e);  
-          } 
-          
+       
           //For Inserting  Info:
-          
+          DeptCC();
           ManagerCC();
     }// End Of Main Function
     
