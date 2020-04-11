@@ -32,8 +32,24 @@ public class ResturantManagement {
                     ObjectOutputStream ouuus = new ObjectOutputStream(fooos);
                     ouuus.writeObject(fooditem);
                     fooos.close();  ouuus.close();
-        
-        }catch(IOException | ClassNotFoundException e){
+                    
+        }catch(FileNotFoundException ex){
+            try{
+                FileOutputStream fos = new FileOutputStream("menu Info");// must create a file (if it does not exist)
+                ObjectOutputStream oos = new ObjectOutputStream(fos);
+                
+                ArrayList<Fooditem> Food_List = new ArrayList<Fooditem>();
+                Food_List.add(fooditem);
+                
+                oos.writeObject(Food_List);
+                
+                fos.close();
+                oos.close();
+                
+            }catch(Exception exe){System.out.println("Nested "+exe);
+            
+            }
+        }catch(Exception e){
             System.out.println(e);
         
         }
@@ -70,7 +86,22 @@ public class ResturantManagement {
                     ouuus.writeObject(drinkitem);
                     fooos.close();  ouuus.close();
         
-        }catch(IOException | ClassNotFoundException e){
+        }catch(FileNotFoundException ex){
+            try{
+            FileOutputStream fos = new FileOutputStream("menu Info");// must create a file (if it does not exist)
+                ObjectOutputStream oos = new ObjectOutputStream(fos);
+                
+                ArrayList<Drinkitem> Food_List = new ArrayList<Drinkitem>();
+                Food_List.add(drinkitem);
+                
+                oos.writeObject(Food_List);
+                
+                fos.close();
+                oos.close();
+            }catch(Exception exx){
+                System.out.println("Inner loop: "+exx);
+            }
+        }catch(Exception e){
             System.out.println(e);
         
         }
