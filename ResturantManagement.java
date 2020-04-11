@@ -5,10 +5,29 @@ import java.io.*;
 
 public class ResturantManagement {
     public static void FoodCC(){
+        Scanner InPut = new Scanner(System.in);
+        System.out.println("Enter the Item ID:");
+        int ID = InPut.nextInt();
+        
+        System.out.println("Enter the Item Price:");
+        double price = InPut.nextDouble();
+        //change input appropriate:
+        System.out.println("Enter the Last Name:");
+        String nameL = InPut.next();
+        
+        System.out.println("Enter Email:");
+        String email = InPut.next();
+        
+        System.out.println("Enter Department id");
+        int deptID = InPut.nextInt();
+        Department depB = null;
         try{
             FileOutputStream foos = new FileOutputStream("Food List");
             ObjectOutputStream OOOS = new ObjectOutputStream(foos);
-            
+            //Complete File input Output process the way we did for other Classes.
+            //Your code
+        
+        
         }catch(Exception e){
         
         }
