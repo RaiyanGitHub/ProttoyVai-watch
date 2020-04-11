@@ -78,7 +78,7 @@ public class Manager extends Employee {
                     ArrayList  Waiter_ALL    = (ArrayList)ois.readObject();       //
                     Waiter_ALL.add(waiterr);
                     fis.close();        ois.close();
-                    FileOutputStream fos = new FileOutputStream("Chef Info");   
+                    FileOutputStream fos = new FileOutputStream("Waiter Info");   
                     ObjectOutputStream ous = new ObjectOutputStream(fos);
                     ous.writeObject(Waiter_ALL);
                     fos.close();    ous.close();
@@ -97,7 +97,7 @@ public class Manager extends Employee {
                         ouuus.close();
                         
                         
-                        FileOutputStream fos = new FileOutputStream("Chef Info");   //fus
+                        FileOutputStream fos = new FileOutputStream("Waiter Info");   //fus
                         ObjectOutputStream ous = new ObjectOutputStream(fos);       //ous
                         ArrayList<waiter> Waiter_List = new ArrayList<waiter>();        // created array List
                         Waiter_List.add(waiterr);                                      // added the newly created chef to arr
@@ -247,7 +247,7 @@ public class Manager extends Employee {
                     Cashier_ALL.add(bright);
                     fis.close();        ois.close();
                     
-                    FileOutputStream fos   = new FileOutputStream("Chef Info");   
+                    FileOutputStream fos   = new FileOutputStream("Cashier Info");   
                     ObjectOutputStream ous = new ObjectOutputStream(fos);
                     ous.writeObject(Cashier_ALL);
                     fos.close();    ous.close();
@@ -266,7 +266,7 @@ public class Manager extends Employee {
                         fooos.close();
                         ouuus.close();
                         
-                        FileOutputStream fos            = new FileOutputStream("Chef Info");   //fus
+                        FileOutputStream fos            = new FileOutputStream("Cashier Info");   //fus
                         ObjectOutputStream ous          = new ObjectOutputStream(fos);       //ous
                         ArrayList<Cashier> Cashier_List = new ArrayList<Cashier>();        // created array List
                         Cashier_List.add(bright);                                      // added the newly created chef to arr
