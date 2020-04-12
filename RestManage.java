@@ -25,18 +25,13 @@ public class RestManage {
      * @param args the command line arguments
      */
     public static void MainMenu() {
+        ArrayList<Employee> EMPLOYEE_ALL = new ArrayList<Employee>();
         System.out.println("Welcome to our Restaurant Management Project!"
                 + "Featuring:\t Team Joy Bangla!!!");
         boolean flow = true;
-        // Create a manager or login as one
-/*        ArrayList<Manager> Loggedin =new  ArrayList<Manager>();
-        Loggedin.add(ManagerLL());
-        if (Loggedin == null) {
-            ManagerCC();
-            Loggedin.add(ManagerLL());
-        }
-        if (Loggedin != null) {*/
-            Manager man = new Manager();
+        
+            Manager man = new Manager(12126,"Sheikh","Ahmed","sheikh15-12126@DUUU.edu.bd");
+            
         while (flow) {
 
             System.out.println("What would you  like to do?");
@@ -51,7 +46,8 @@ public class RestManage {
                     System.out.println("-------------***MainMenu***-------------------" + "\n"
                             + "1. Hire Employee\n"
                             + "2. Login Employee\n"
-                            + "3. Logout Employee\n");
+                            + "3. Logout Employee\n"
+                            + "4. Display All Employee\n");
                     //1. Open the Manager File.
                     //2. Extract the ArrayList of Managers.
                     //3. Login as a manager.
@@ -60,6 +56,9 @@ public class RestManage {
                             /**
                              * Call Manager Node.Hire Employee
                              */
+                            
+                            
+                            /* VERY USEFUL CODE IF YOU DEBUG IT CORRECTLY
                             try {
                                 FileInputStream fis = new FileInputStream("Manager Info");
                                 ObjectInputStream ois = new ObjectInputStream(fis);
@@ -125,6 +124,114 @@ public class RestManage {
                                 System.out.println("Line 118");
                                 System.out.println(e);
                             }
+                            */
+        Scanner input=new Scanner(System.in);
+        System.out.println("Which position you want to hire?");
+        System.out.println("/n1.Waiter");
+        System.out.println("/n2.Chef");
+        System.out.println("/n3.Cashier");
+        System.out.println("Enter any number(1-3)");
+        int n=input.nextInt();
+        switch(n)
+        {
+            case 1:
+                System.out.println("Id no:");
+                int iD=input.nextInt();
+                System.out.println("Type firstname");
+                String name=input.next();
+                System.out.println("Type lastname");
+                String name1=input.next();
+                System.out.println("Email");
+                String eml=input.next();
+                /*
+                department.id=011;
+                department.name="Waiter";
+                System.out.println("type streetname");
+                
+                adress.streetname=input.next();
+                System.out.println("Type town name");
+                adress.town=input.next();*/
+                waiter waiterr=new waiter(iD,name,name1,eml);
+                //1. Create File I Stre fis<<-----Waiter Info
+                //1.5. Create Object Input Stream ois <<----- fis
+                //2. Extract ArrayList of waiters
+                //3. Add waiterr to ArrayList 
+                //4. Close The file and Object input streams
+                //5. Create File and Object Outputstream
+                //6. enter arraylist to file
+                //7. close file and object outputstream
+                EMPLOYEE_ALL.add(waiterr); 
+                break;
+                
+            case 2:
+                
+                 System.out.println("Id no:");
+                int iDc=input.nextInt();
+                System.out.println("Type firstname");
+                String namec=input.next();
+                System.out.println("Type lastname");
+                String name1c=input.next();
+                System.out.println("Email");
+                String emlc=input.next();
+            /*  department.id=012;
+                department.name="Chef";
+                System.out.println("type streetname");
+                
+                adress.streetname=input.next();
+                System.out.println("Type town name");
+                adress.town=input.next();
+                */
+                 Chefs chef01=new Chefs(iDc,namec,name1c,emlc);
+                //1. Create File I Stre fis<<-----Waiter Info
+                //1.5. Create Object Input Stream ois <<----- fis
+                //2. Extract ArrayList of waiters
+                //3. Add chef to ArrayList 
+                //4. Close The file and Object input streams
+                //5. Create File and Object Outputstream
+                //6. enter arraylist to file
+                //7. close file and object outputstream
+                EMPLOYEE_ALL.add(chef01);
+                break;
+                
+            case 3:
+                
+                System.out.println("Id no:");
+                int iDm=input.nextInt();
+                System.out.println("Type firstname");
+                String namem=input.next();
+                System.out.println("Type lastname");
+                String name1m=input.next();
+                System.out.println("Email");
+                String emlm=input.next();
+        /*
+                department.id=013;
+                department.name="Cashier";
+                System.out.println("type streetname");
+                
+                adress.streetname=input.next();
+                System.out.println("Type town name");
+                adress.town=input.next();
+        */
+                Cashier bright=new Cashier(iDm,namem,name1m,emlm);
+                //1. Create File I Stre fis<<-----Waiter Info
+                //1.5. Create Object Input Stream ois <<----- fis
+                //2. Extract ArrayList of waiters
+                //3. Add waiterr to ArrayList 
+                //4. Close The file and Object input streams
+                //5. Create File and Object Outputstream
+                //6. enter arraylist to file
+                //7. close file and object outputstream
+                EMPLOYEE_ALL.add(bright);
+                break;
+            default:
+                System.out.println("Type correct number");          
+                
+        }
+         
+    
+      
+                            
+                            man.hireemployee();
                             break;
                         case 2:
                             try {
@@ -141,7 +248,7 @@ public class RestManage {
 
                                 System.out.println("Enter the ID of the Employee: ");//3
                                 int keyID = input.nextInt();
-                                ///*
+                                /*
                                 fees.close();
                                 oees.close();
                                 //*/
@@ -151,15 +258,16 @@ public class RestManage {
                                     Employee node = (Employee) itr.next();
                                     if (node.id == keyID) {
                                         node.login();
-                                        /*fees.close();
-                                            oees.close();*/
+                                        fees.close();
+                                        oees.close();
                                         break;
                                     }
 
                                 }
 
                             } catch (Exception ex) {
-                                System.out.println("Line 154");
+                                System.out.println("Line 168");
+                                man.login();
                                 System.out.println(ex);
                             }
 
@@ -196,9 +304,51 @@ public class RestManage {
 
                                 }
                             } catch (Exception ex) {
-
+                                man.logout();
+                                System.out.println(""+ex);
                             }
                             break;
+                            
+                        case 4:
+                                
+                            try {
+                                // *   Call Manger Node.Login Employee   XXXXXXXXX
+                                //1. Open Employee File <<---------File Input Stream
+                                //2. Extract ArrayList Of Employees from File <<---------- Object Input Stream
+                                //3. Take user input <<----- Employee ID
+                                //4. Search ArrayList for Employee <<------ Basic Search
+                                //5. Employee.Login()
+                                //6. Fis.close() & Ois.close()
+                                FileInputStream fees = new FileInputStream("Employee Info");//1
+                                ObjectInputStream oees = new ObjectInputStream(fees);//2
+                                ArrayList employees_ALL = (ArrayList) oees.readObject();
+
+                                
+                                Iterator itr = employees_ALL.iterator();//4
+                                while (itr.hasNext()) {
+
+                                    Employee node = (Employee) itr.next();
+                                    node.display();
+
+                                }
+
+                            } catch (Exception ex) {
+                                System.out.println("Line 233");
+                                //ArrayList employees_ALL = (ArrayList) oees.readObject();
+
+                                
+                                Iterator itr = EMPLOYEE_ALL.iterator();//4
+                                while (itr.hasNext()) {
+
+                                    Employee node = (Employee) itr.next();
+                                    node.display();
+
+                                }
+                                System.out.println(ex);
+                            }
+
+                            break;
+
 
                         default:
                     }

@@ -106,7 +106,7 @@ public class ResturantManagement {
             System.out.println(e);
         }
     }
-    public static void DeptCC(){
+    /*public static void DeptCC(){
     //ArrayList<String> al=new ArrayList<String>();
         ArrayList<Department> departments__ALL = new ArrayList<Department>();
         Department first = new Department(1,"Management");
@@ -148,6 +148,8 @@ public class ResturantManagement {
           } 
           
     }
+    
+    */
     public static Manager ManagerLL(){//Input manager Id and login for manager
         //1. Create file input stream fis
         //2. create object input stream  ois
@@ -226,7 +228,7 @@ public class ResturantManagement {
         
         System.out.println("Enter Email:");
         String email = InPut.next();
-        
+/*        
         System.out.println("Enter Department id");
         int deptID = InPut.nextInt();
         Department depB = null;
@@ -238,7 +240,7 @@ public class ResturantManagement {
             else 
                 System.out.println(" Department not found:");
         }
-        */try{
+        *\/try{
         FileInputStream fis=new FileInputStream("Department Info");  
               ObjectInputStream ois=new ObjectInputStream(fis);              
               ArrayList  Dept_list=(ArrayList)ois.readObject();
@@ -261,20 +263,20 @@ public class ResturantManagement {
         }catch(Exception e){
             System.out.println(e);
         }
-        System.out.println("Enter Street Name:");
+        /*System.out.println("Enter Street Name:");
         String streetname = InPut.next();
         System.out.println("Enter Town name:");
         String Town = InPut.next();
         //super(ID,fname,nameL,email,depB,streetname,Town);
-        
+        */
         System.out.println("Enter Branchno:");
-        String BNo = InPut.next();
-        System.out.println("Enter Branch Name:");
+        int BNo = InPut.nextInt();
+        /*System.out.println("Enter Branch Name:");
         String BName = InPut.next();
         System.out.println("Enter Corporate report:");
         String CorpRep = InPut.next();
-        
-        Manager m0001 = new Manager(BNo,BName,CorpRep,ID,fname,nameL,email,depB,streetname,Town);
+        */
+        Manager m0001 = new Manager(BNo,ID,fname,nameL,email);
         ArrayList<Manager> managers__ALL = new ArrayList<Manager>();
         managers__ALL.add(m0001);
         
@@ -288,6 +290,7 @@ public class ResturantManagement {
               oos.close();  
             }catch(Exception e)  
           {  
+              System.out.println("line 293");
               System.out.println(e);  
           }
         
@@ -296,7 +299,7 @@ public class ResturantManagement {
     public static void main(String[] args) {
        
           //For Inserting  Info:
-          DeptCC();
+          //DeptCC();
           ManagerCC();
     }// End Of Main Function
     

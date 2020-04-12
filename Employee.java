@@ -2,6 +2,7 @@
 package restmanage;
 
 
+
 import java.io.*;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
@@ -13,31 +14,19 @@ int id;
 String firstname;
 String lastname;
 String email;
-Department department;
+
 //String position;
-Address adress;
+//Address adress;
 //Efficiency efficiency;
 
-    public Employee(int id, String firstname, String lastname, String email, Department department,  Address adress) {
+    public Employee(int id, String firstname, String lastname, String email) {
         this.id = id;
         this.firstname = firstname;
         this.lastname = lastname;
         this.email = email;
-        this.department = department;
-        //this.position = position;
-        this.adress = adress;
-        //this.efficiency = efficiency;
     }
-    public Employee(int id, String firstname, String lastname, String email, Department department,  String street, String Town) {
-        this.id = id;
-        this.firstname = firstname;
-        this.lastname = lastname;
-        this.email = email;
-        this.department = department;
-        //this.position = position;
-        this.adress =new Address(street,Town);
-        //this.efficiency = efficiency;
-    }
+
+    
 
 public  void login()
 {
@@ -55,7 +44,11 @@ public  void logout()
     
 }
     public void display(){
-        
+        System.out.println("Employee ID: "+id
+                +"\nFirst Name: "+this.firstname
+                +"\nLast Name: "+this.lastname
+                +"\nEmail: "+this.email
+                +"");
     }
      
 }

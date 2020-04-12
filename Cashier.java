@@ -8,11 +8,18 @@ public class Cashier extends Employee implements Serializable{
     
     Order order;
 
+    public Cashier(Order order, int id, String firstname, String lastname, String email) {
+        super(id, firstname, lastname, email);
+        this.order = order;
+    }
+
+    public Cashier(int id, String firstname, String lastname, String email) {
+        super(id, firstname, lastname, email);
+    }
+
     
 
-    public Cashier(int id, String firstname, String lastname, String email, Department department, Address adress) {
-        super(id, firstname, lastname, email, department, adress);
-    }
+    
     
     public void takeorder(Order order)
     {

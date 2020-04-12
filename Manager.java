@@ -10,15 +10,16 @@ public class Manager extends Employee implements Serializable{
 //    String branchname;
 //    String corporatereport;
 
-    public Manager(int branchno, int id, String firstname, String lastname, String email, Department department, Address adress) {
-        super(id, firstname, lastname, email, department, adress);
+    public Manager(int branchno, int id, String firstname, String lastname, String email) {
+        super(id, firstname, lastname, email);
         this.branchno = branchno;
     }
 
-    public Manager(int branchno, int id, String firstname, String lastname, String email, Department department, String street, String Town) {
-        super(id, firstname, lastname, email, department, street, Town);
-        this.branchno = branchno;
+    public Manager(int id, String firstname, String lastname, String email) {
+        super(id, firstname, lastname, email);
     }
+
+    
     
     
     
@@ -42,14 +43,15 @@ public class Manager extends Employee implements Serializable{
                 String name1=input.next();
                 System.out.println("Email");
                 String eml=input.next();
+                /*
                 department.id=011;
                 department.name="Waiter";
                 System.out.println("type streetname");
                 
                 adress.streetname=input.next();
                 System.out.println("Type town name");
-                adress.town=input.next();
-                waiter waiterr=new waiter(iD,name,name1,eml,department,adress);
+                adress.town=input.next();*/
+                waiter waiterr=new waiter(iD,name,name1,eml);
                 //1. Create File I Stre fis<<-----Waiter Info
                 //1.5. Create Object Input Stream ois <<----- fis
                 //2. Extract ArrayList of waiters
@@ -125,14 +127,15 @@ public class Manager extends Employee implements Serializable{
                 String name1c=input.next();
                 System.out.println("Email");
                 String emlc=input.next();
-                department.id=012;
+            /*  department.id=012;
                 department.name="Chef";
                 System.out.println("type streetname");
                 
                 adress.streetname=input.next();
                 System.out.println("Type town name");
                 adress.town=input.next();
-                 Chefs chef01=new Chefs(iDc,namec,name1c,emlc,department,adress);
+                */
+                 Chefs chef01=new Chefs(iDc,namec,name1c,emlc);
                 //1. Create File I Stre fis<<-----Waiter Info
                 //1.5. Create Object Input Stream ois <<----- fis
                 //2. Extract ArrayList of waiters
@@ -206,6 +209,7 @@ public class Manager extends Employee implements Serializable{
                 String name1m=input.next();
                 System.out.println("Email");
                 String emlm=input.next();
+        /*
                 department.id=013;
                 department.name="Cashier";
                 System.out.println("type streetname");
@@ -213,7 +217,8 @@ public class Manager extends Employee implements Serializable{
                 adress.streetname=input.next();
                 System.out.println("Type town name");
                 adress.town=input.next();
-                Cashier bright=new Cashier(iDm,namem,name1m,emlm,department,adress);
+        */
+                Cashier bright=new Cashier(iDm,namem,name1m,emlm);
                 //1. Create File I Stre fis<<-----Waiter Info
                 //1.5. Create Object Input Stream ois <<----- fis
                 //2. Extract ArrayList of waiters

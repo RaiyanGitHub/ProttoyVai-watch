@@ -12,12 +12,14 @@ public class Chefs extends Employee {
     String currentorder;
     Order order;
     waiter waiterr;
+
+    public Chefs(int id, String firstname, String lastname, String email) {
+        super(id, firstname, lastname, email);
+    }
     
 
 
-    public Chefs(int id, String firstname, String lastname, String email, Department department, Address adress) {
-        super(id, firstname, lastname, email, department, adress);
-    }
+   
 
 
     
